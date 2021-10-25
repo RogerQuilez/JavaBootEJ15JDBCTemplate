@@ -28,7 +28,7 @@ public class ClienteRepositoryImpl implements ClienteRepository {
 	}
 
 	public int modificar(Cliente c) {
-		String query = "UPDATE clientes SET NOMBE = ?";
+		String query = "UPDATE clientes SET NOMBRE = ?";
 		
 		return jdbcTemplate.update(query, 
 				c.getNombre());
