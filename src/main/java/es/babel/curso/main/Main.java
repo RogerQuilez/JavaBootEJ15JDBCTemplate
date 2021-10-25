@@ -123,8 +123,7 @@ public class Main {
 	
 	private static void listarClientes(ClienteService clienteService) {
 		List<Cliente> clientes = clienteService.listar();
-		for (Cliente c: clientes) 
-			System.out.println(c);
+		clientes.forEach((c) -> System.out.println(c));
 	}
 	
 	private static void buscarConProductos(ClienteService clienteService) {
@@ -133,8 +132,7 @@ public class Main {
 	
 	private static void listarConProductos(ClienteService clienteService) {
 		List<Cliente> clientes = clienteService.listarConPedidos();
-		for (Cliente c: clientes) 
-			System.out.println(c);
+		clientes.forEach((c) -> System.out.println(c));
 	}
 	
 }
