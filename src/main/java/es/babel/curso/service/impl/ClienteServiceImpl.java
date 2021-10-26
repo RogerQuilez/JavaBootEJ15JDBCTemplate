@@ -73,9 +73,10 @@ public class ClienteServiceImpl implements ClienteService{
 	@Override
 	public List<Cliente> listarConPedidos() {
 		List<Cliente> clientes = clienteRepo.listar();
-		for (Cliente c: clientes) {
-			c.setPedidos(pedidoRepo.listarPedidosCliente(c.getId()));
-		}
+		
+		clientes.forEach((c) -> 
+			c.setPedidos(pedidoRepo.listarPedidosCliente(c.getId())));
+		
 		return clientes;
 	}
 
