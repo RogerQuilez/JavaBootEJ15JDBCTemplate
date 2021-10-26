@@ -61,7 +61,10 @@ public class Main {
 					
 				case 8:
 					listarConProductos(clienteService);
-					break;				
+					break;	
+				
+				case 0:
+					break;
 				
 			}
 			

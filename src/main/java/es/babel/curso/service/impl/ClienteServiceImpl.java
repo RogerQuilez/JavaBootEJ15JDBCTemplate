@@ -21,22 +21,41 @@ public class ClienteServiceImpl implements ClienteService{
 
 	@Override
 	public int insertar(Cliente c) {
-		return clienteRepo.insertar(c);
+		if (!"".equals(c.getNombre())) {
+			System.out.println("Se ha dado de alta al cliente " + c.getNombre());
+			return clienteRepo.insertar(c);
+		}
+		return -1;
 	}
 
 	@Override
 	public int modificar(Cliente c) {
-		return clienteRepo.modificar(c);
+		if (!"".equals(c.getNombre())) {
+			System.out.println("Se ha modificado correctamente al cliente " + c.getNombre());
+			return clienteRepo.modificar(c, c.getId());
+		}
+		return -1;
 	}
 
 	@Override
 	public int borrar(int id) {
+		if (clienteRepo.buscar(id) == null) {
+			System.out.println("No existen clientes con el ID: " + id);
+		} else {
+			System.out.println("Cliente con ID " + id + " borrado.");
+		}
 		return clienteRepo.borrar(id);
 	}
 	
 	@Override
 	public Cliente buscar(int id) {
-		return clienteRepo.buscar(id);
+		Cliente c = clienteRepo.buscar(id);
+		if (c == null) {
+			System.out.println("No existen clientes con el ID: " + id);
+		} else {
+			System.out.println("Cliente con ID " + id + " encontrado: \n" + c);
+		}
+		return c;
 	}
 
 	@Override
